@@ -1,0 +1,52 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm justify-content-between fixed-top">
+        <div class="navbar-brand pull-left">
+            <div class="form-group has-search">
+                <input type="text" class="form-control" placeholder="SEARCH">
+            </div>
+        </div>
+
+        <!-- Links -->
+        <ul class="navbar-nav navLinks">
+            <li>
+                <p class="nav-link textTransform">
+                    {{teamName}} &nbsp;
+                </p>
+            </li>
+            <li></li>
+            <li class="nav-item" *ngFor="let item of teamData; index as i; ">
+                <a class="nav-link">
+                    <img class="rounded-circle" [src]="item.avatar" [title]="item.name" height="30" width="30" />
+                </a>
+            </li>
+            <li>
+                <a class="nav-link">
+                    <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg" title="Add Team Member"
+                        height="30" width="30" />
+                </a>
+            </li>
+        </ul>
+
+        <div>
+            <ul class="navbar-nav navLinks">
+                <li>
+                    <a class="nav-link">
+                        <img *ngIf=" !showNotifications" class=" rounded-circle"
+                            src="../.././../assets/images/noNotifications.jpg" title="No notifications for the day!"
+                            height="30" width="30" />
+                        <img *ngIf=" showNotifications" class=" rounded-circle"
+                            src="../.././../assets/images/notify.gif" title="Check Notifications!" height="30"
+                            width="30" />
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link">
+                        <img class=" rounded-circle" [src]="adminAvatar" [title]="adminName" height="30" width="30" />
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+</div>

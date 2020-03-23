@@ -1,0 +1,95 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <div class="pull-left">
+                <h5 class="modal-title">{{Data.Description}}</h5>
+            </div>
+            <div class="pull-right">
+                <a class="nav-link close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                    <img class="rounded-circle" height="30" width="30" src="../../../assets/images/closeIcon.jpg" />
+                </a>
+            </div>
+
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-primary" disabled [style.background-color]="Data['color-code']"
+                        [style.border-color]="Data['color-code']">
+                        {{Data.category}}
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" value="due date" [(ngModel)]="Data['Due-date']" class="text-muted card-TextBox"
+                        readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row pull-right">
+                        <a *ngFor="let item of Data['watch-list']; index as i; ">
+                            <img class="rounded-circle" [src]="item.avatar" [title]="item.name" height="25"
+                                width="25" />
+                        </a>
+                        <a>
+                            <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg"
+                                title="Add Team Member" height="25" width="25" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Description</h5>
+                    <p>{{Data['detailed-Description']}}</p>
+
+                </div>
+                <div class="col-md-6">
+                    <h5>Overall Progress</h5>
+                    <ul>
+                        <li *ngFor="let item of Data['Check-list']">
+                            <input type="checkbox" [value]="item.desc" [checked]="item.iscompleted">
+                            <label class="strikethrough">{{item.desc}}</label>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row">
+                    <h5>Comments</h5>
+                </div>
+
+                <div class="row" *ngFor="let item of Data['Comments']">
+
+                    <img class="rounded-circle" [src]="item.userAvatar" height="20" width="20" />
+                    &nbsp;
+                    <textarea rows="1" [value]="item.comments" readonly></textarea>
+                    <br>
+                    <div class="row">
+                        <span class="text-muted"><em>Commented On:</em>{{item.commentedOn}}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <h5>Add Comments</h5>
+                </div>
+                <br>
+                <div class="row">
+
+                    <img class="rounded-circle" [src]="loginUserInfo[0].avatar" height="30" width="30" />
+                    &nbsp;
+                    <textarea rows="1" [(ngModel)]="newComment" placeholder="Add your comments"></textarea>
+
+                    <button class="btn btn-primary" (click)="addNewComments()">Add</button>
+
+                </div>
+            </div>
+        </div>
+    </div>

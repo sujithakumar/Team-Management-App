@@ -1,0 +1,118 @@
+*{
+  font-family: Raleway-SemiBold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+img:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+.headerClass{
+  width: 100% !important;
+}
+
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+
+.form-control{
+    border-radius: 15px; 
+}
+.btn-primary {
+
+  border-radius: 40px;
+  transition: all 0.3s ease 0s;
+}
+.btn-primary:hover {
+  color: #FFF;
+
+}
+.text-muted{
+  color:lightgray !important;
+}
+.card{
+    border: 1px solid transparent !important;
+    border-radius: 15px !important;
+    /* padding: 3px!important; */
+   box-shadow: 10px 10px 10px 10px lightgray !important;
+}
+.card:hover , button:hover {
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1); 
+}
+.card-title{
+font-weight: bolder;
+}
+
+.card-TextBox{
+     border-radius: 15px;
+    border: 3px solid whitesmoke !important;
+    text-align: center;
+    width: 99px;
+    box-shadow: inset 3px 3px 5px 1px lightgrey;
+    padding: 2px;
+}
+
+.colorMe{
+  border-bottom: 4px solid;
+    border-radius: 3px;
+    width: 60px;
+}
+.req{
+    color: red;
+}
+.container {
+    height: 100%;
+}
+
+.textTransform{
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.headerDiv{
+   
+    border-bottom: 0.5px solid lightgray; 
+    margin-bottom: 10px;
+    height: 4rem;   
+}
+.bodyDiv{
+    padding: 5px;
+    margin : 5px;
+
+}
+/* Media Queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .mediaSwitch{
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

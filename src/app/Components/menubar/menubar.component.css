@@ -1,0 +1,13 @@
+a:active , .active{
+ background-color: blue;
+ border-bottom-right-radius: 15px;
+ border-top-right-radius: 15px;
+ -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1); 
+   box-shadow: 8px 8px 8px 8px lightgray !important;
+}
+
+li{
+    padding: 7px;
+}

@@ -1,0 +1,22 @@
+.bodyContainer{
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+li{
+    padding: 2px;
+    margin: 1px;
+    box-shadow: lightgray;
+    cursor:pointer;
+}
+
+.blankLi::before, .blankLi::after{
+    content: " ";
+    padding : 3px;
+    margin: 3px;
+}
+
