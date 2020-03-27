@@ -1,0 +1,18 @@
+[
+    {
+        "id": "100",
+        "name": "admin",
+        "Passsword": "admin",
+        "avatar": "https://images.tribuneindia.com/cms/gall_content/2018/11/2018_11$largeimg08_Thursday_2018_184137995.jpg",
+        "notifications": 2,
+        "BelongsTo": "Design Team"
+    },
+    {
+        "id": "200",
+        "name": "admin1",
+        "Passsword": "admin1",
+        "avatar": "https://img.manoramaonline.com/content/dam/mm/en/entertainment/images/aug-15/ajith-cool.jpg.image.784.410.jpg",
+        "notifications": 0,
+        "BelongsTo": "Development Team"
+    }
+]

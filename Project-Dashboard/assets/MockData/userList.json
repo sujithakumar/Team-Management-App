@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/6/62/Aishwarya_Rai_2015.jpg",
+    "name": "name 1",
+    "reportingTo": 100
+  },
+  {
+    "id": "2",
+    "avatar": "https://blenderartists.org/uploads/default/original/4X/a/e/d/aed326a8a65ef14a3b730c9b57715a52365531b8.jpeg",
+    "name": "name 2",
+    "reportingTo": 100
+  },
+  {
+    "id": "3",
+    "avatar": "https://i.pinimg.com/originals/87/5b/03/875b034a6280fc9594e5a58bb8c6501e.jpg",
+    "name": "name 3",
+    "reportingTo": 100
+  },
+  {
+    "id": "4",
+    "avatar": "https://cdn.pixabay.com/photo/2017/06/18/14/47/bindi-2416039__340.jpg",
+    "name": "name 4",
+    "reportingTo": 100
+  },
+  {
+    "id": "5",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/9/98/Tom_Hanks_face.jpg",
+    "name": "name 5",
+    "reportingTo": 100
+  },
+  {
+    "id": "6",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Charlie_face.JPG",
+    "name": "name 6",
+    "reportingTo": 200
+  },
+  {
+    "id": "7",
+    "avatar": "https://keepmestylish.com/wp/wp-content/uploads/2018/01/south-indian-hairstyles-for-round-faces-2.jpg",
+    "name": "name 7",
+    "reportingTo": 200
+  },
+  {
+    "id": "8",
+    "avatar": "http://lorempixel.com/640/480/food",
+    "name": "name 8",
+    "reportingTo": 200
+  },
+  {
+    "id": "9",
+    "avatar": "https://m.timesofindia.com/thumb/msid-65383565,imgsize-23436,width-800,height-600,resizemode-4/65383565.jpg",
+    "name": "name 9",
+    "reportingTo": 200
+  },
+  {
+    "id": "10",
+    "avatar": "http://lorempixel.com/640/480/fashion",
+    "name": "name 10",
+    "reportingTo": 200
+  }
+]
