@@ -14,7 +14,7 @@ export class BacklogComponent implements OnInit {
   dueDate: any;
   colorCode: string;
 
-  @Input() backlogTasks: task;
+  @Input() backlogTasks: any;
 
   constructor() { }
 
@@ -22,13 +22,9 @@ export class BacklogComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    var CurrvalLen = 0;
-    if (changes.backlogTasks.currentValue && changes.backlogTasks.currentValue.length > 0) {
-      CurrvalLen = changes.backlogTasks.currentValue.length;
-      for (var i = 0; i < CurrvalLen; i++) {
-        this.setData(changes.backlogTasks.currentValue[i]);
-      }
 
+    if (changes.backlogTasks && changes.backlogTasks.currentValue) {
+      this.setData(changes.backlogTasks.currentValue);
     }
   }
 

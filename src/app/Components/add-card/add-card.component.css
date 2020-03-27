@@ -1,0 +1,26 @@
+li {
+    display: inline-block!important;
+    margin: 5px;
+    padding : 2px;
+}
+button{
+    margin : 3px !important;
+}
+
+
+.row{
+    margin : 3px solid transparent !important;
+}
+/* img{
+   margin: 5px;
+    padding: 1px;
+} */
+
+h5{
+    font-weight: bolder;
+    text-shadow: lightgray;
+}
+
+label{
+    font-weight: bold;
+}

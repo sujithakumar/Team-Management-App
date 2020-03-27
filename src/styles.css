@@ -2,11 +2,22 @@
   font-family: Raleway-SemiBold;
   font-size: 14px;
   letter-spacing: 1px;
-  
+  /* margin : 0px auto !important; */
+  word-wrap: break-word !important;
 }
 a {
   cursor: pointer;
   text-decoration: none;
+}
+ul{
+    list-style-type: none !important;
+}
+textarea{
+    border : 1px solid whitesmoke;
+    border-radius: 15px;
+    width: 500px;
+    padding-left: 10px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
 }
 img:hover {
   -ms-transform: scale(1.5); /* IE 9 */
@@ -23,6 +34,19 @@ img:hover {
 
 .form-control{
     border-radius: 15px; 
+}
+.modal-header {
+    border : 0px !important;
+}
+.modal-content{
+    border-radius: 15px !important;
+}
+.modal-dialog {
+    max-width: 600px !important;
+    border-radius: 15px !important;
+    margin-top: 1px !important;
+     margin-bottom: 1px !important;
+     padding : 3px;
 }
 .btn-primary {
 
@@ -59,6 +83,9 @@ font-weight: bolder;
     box-shadow: inset 3px 3px 5px 1px lightgrey;
     padding: 2px;
 }
+.fixed-top{
+  width:100%;
+}
 
 .colorMe{
   border-bottom: 4px solid;
@@ -80,13 +107,14 @@ font-weight: bolder;
 .headerDiv{
    
     border-bottom: 0.5px solid lightgray; 
-    margin-bottom: 10px;
-    height: 4rem;   
+    margin-bottom: 12px;
+    height: 4.5rem;   
+    margin : 0px auto !important;
 }
 .bodyDiv{
-    padding: 5px;
-    margin : 5px;
-
+   margin : 0px auto !important;
+   padding-top: 70px!important;
+   width: 98% !important;
 }
 /* Media Queries */
 /* Extra small devices (phones, 600px and down) */

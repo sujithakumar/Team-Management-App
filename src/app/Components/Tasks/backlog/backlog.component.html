@@ -12,7 +12,8 @@
     </nav>
     <div class="card-body">
         <h6 class="card-title"> {{Description}}</h6>
-        <input type="text" value="due date" [(ngModel)]="dueDate" class="text-muted card-TextBox" readonly />
+        <input type="text" value="due date" *ngIf="dueDate" [(ngModel)]="dueDate" class="text-muted card-TextBox"
+            readonly />
     </div>
     <nav class=" navbar navbar-expand-sm justify-content-between">
         <span class="text-muted">

@@ -15,7 +15,7 @@
     "id": "3",
     "avatar": "https://i.pinimg.com/originals/87/5b/03/875b034a6280fc9594e5a58bb8c6501e.jpg",
     "name": "name 3",
-    "reportingTo": 200
+    "reportingTo": 100
   },
   {
     "id": "4",
@@ -27,7 +27,7 @@
     "id": "5",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/9/98/Tom_Hanks_face.jpg",
     "name": "name 5",
-    "reportingTo": 200
+    "reportingTo": 100
   },
   {
     "id": "6",
@@ -39,7 +39,7 @@
     "id": "7",
     "avatar": "https://keepmestylish.com/wp/wp-content/uploads/2018/01/south-indian-hairstyles-for-round-faces-2.jpg",
     "name": "name 7",
-    "reportingTo": 100
+    "reportingTo": 200
   },
   {
     "id": "8",
@@ -51,36 +51,12 @@
     "id": "9",
     "avatar": "https://m.timesofindia.com/thumb/msid-65383565,imgsize-23436,width-800,height-600,resizemode-4/65383565.jpg",
     "name": "name 9",
-    "reportingTo": 100
-  },
-  {
-    "id": "10",
-    "avatar": "http://lorempixel.com/640/480/abstract",
-    "name": "name 10",
     "reportingTo": 200
   },
   {
-    "id": "11",
-    "avatar": "http://lorempixel.com/640/480/nature",
-    "name": "name 11",
-    "reportingTo": 87
-  },
-  {
-    "id": "12",
-    "avatar": "https://i.pinimg.com/originals/72/4f/c4/724fc4f5d1e1e0cef7d8806135ea637e.jpg",
-    "name": "name 12",
-    "reportingTo": 100
-  },
-  {
-    "id": "13",
-    "avatar": "http://lorempixel.com/640/480/business",
-    "name": "name 13",
-    "reportingTo": 80
-  },
-  {
-    "id": "14",
-    "avatar": "http://lorempixel.com/640/480/abstract",
-    "name": "name 14",
+    "id": "10",
+    "avatar": "http://lorempixel.com/640/480/fashion",
+    "name": "name 10",
     "reportingTo": 200
   }
 ]

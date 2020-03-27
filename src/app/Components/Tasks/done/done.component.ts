@@ -14,7 +14,7 @@ export class DoneComponent implements OnInit {
   dueDate: any;
   colorCode: string;
 
-  @Input() doneTasks: task;
+  @Input() doneTasks: any;
 
   constructor() { }
 
@@ -22,13 +22,9 @@ export class DoneComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    var CurrvalLen = 0;
-    if (changes.doneTasks.currentValue && changes.doneTasks.currentValue.length > 0) {
-      CurrvalLen = changes.doneTasks.currentValue.length;
-      for (var i = 0; i < CurrvalLen; i++) {
-        this.setData(changes.doneTasks.currentValue[i]);
-      }
 
+    if (changes.doneTasks && changes.doneTasks.currentValue) {
+      this.setData(changes.doneTasks.currentValue);
     }
 
   }

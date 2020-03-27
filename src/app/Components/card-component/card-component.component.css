@@ -1,24 +1,7 @@
-.modal-dialog {
-    max-width: 500px !important;
-    border-radius: 15px !important;
-    margin-top: 1px !important;
-     margin-bottom: 1px !important;
-     padding : 3px;
-}
-ul{
-    list-style-type: none !important;
-}
+
 img{
-    margin: 3px;
-    padding : 2px;
-}
-
-.modal-header {
-    border : 0px !important;
-}
-
-.modal-content {
-    border-radius: 1.3rem !important;
+   margin: 5px;
+    padding: 1px;
 }
 
 .justify-content-between {
@@ -29,7 +12,7 @@ h5{
     text-shadow: lightgray;
 }
 button{
-    width: 80px;
+    width: 95px;
 }
 .btn-primary.disabled {
     cursor: auto;
@@ -37,13 +20,10 @@ button{
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;
 }
-textarea{
-    border : 1px solid whitesmoke;
-    border-radius: 15px;
-    max-width: 390px;
-    width: 400px;
-    padding-left: 10px;
-    box-shadow: 1px 1px 1px 1px lightgrey;
+
+.newComments{
+    width:429px;
+margin : 2px;
 }
 
 .row{

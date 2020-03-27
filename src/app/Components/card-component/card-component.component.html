@@ -83,12 +83,15 @@
                 <br>
                 <div class="row">
 
-                    <img class="rounded-circle" [src]="loginUserInfo[0].avatar" height="30" width="30" />
-                    &nbsp;
-                    <textarea rows="1" [(ngModel)]="newComment" placeholder="Add your comments"></textarea>
+                    <img class="rounded-circle nav-link" [src]="loginUserInfo[0].avatar" height="30" width="30" />
 
-                    <button class="btn btn-primary" (click)="addNewComments()">Add</button>
+                    <textarea class="newComments" rows="2" [(ngModel)]="newComment"
+                        placeholder="Add your comments"></textarea>
 
+                    <a class="nav-link" (click)="addNewComments()">
+                        <img class=" rounded-circle" src="../.././../assets/images/bluePlus.png" title="Add comments"
+                            height="25" width="25" />
+                    </a>
                 </div>
             </div>
         </div>

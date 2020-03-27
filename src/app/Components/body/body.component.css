@@ -1,12 +1,10 @@
 .bodyContainer{
-    overflow-x: hidden;
-    overflow-y: auto;
-    
+    overflow: hidden !important;
+    border-left : 2px thin grey !important;
+   
 }
 
-ul{
-    list-style-type: none;
-}
+
 li{
     padding: 2px;
     margin: 1px;

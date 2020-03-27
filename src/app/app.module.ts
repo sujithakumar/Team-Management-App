@@ -16,6 +16,7 @@ import { BacklogComponent } from './Components/Tasks/backlog/backlog.component';
 import { TodoComponent } from './Components/Tasks/todo/todo.component';
 import { InprogressComponent } from './Components/Tasks/inprogress/inprogress.component';
 import { DoneComponent } from './Components/Tasks/done/done.component';
+import { AddCardComponent } from './Components/add-card/add-card.component';
 
 
 
@@ -30,7 +31,8 @@ import { DoneComponent } from './Components/Tasks/done/done.component';
     BacklogComponent,
     TodoComponent,
     InprogressComponent,
-    DoneComponent
+    DoneComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,

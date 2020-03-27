@@ -14,7 +14,7 @@ export class InprogressComponent implements OnInit {
   dueDate: any;
   colorCode: string;
 
-  @Input() inProgressTasks: task;
+  @Input() inProgressTasks: any;
 
   constructor() { }
 
@@ -22,13 +22,8 @@ export class InprogressComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    var CurrvalLen = 0;
-    if (changes.inProgressTasks.currentValue && changes.inProgressTasks.currentValue.length > 0) {
-      CurrvalLen = changes.inProgressTasks.currentValue.length;
-      for (var i = 0; i < CurrvalLen; i++) {
-        this.setData(changes.inProgressTasks.currentValue[i]);
-      }
-
+    if (changes.inProgressTasks && changes.inProgressTasks.currentValue) {
+      this.setData(changes.inProgressTasks.currentValue);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -15,7 +15,7 @@ import { teamData } from '../../Models/teamData';
 })
 export class HeaderComponent implements OnInit {
 
-  teamData: teamData[];
+  teamData: any = [];
   login: login[];
   adminId: string = localStorage.getItem('adminID');
   showNotifications = false;
@@ -34,6 +34,19 @@ export class HeaderComponent implements OnInit {
     this.TeamDataService.getTeamData().subscribe(data => {
       this.filterResults(data);
     });
+
+  }
+
+  @HostListener('window:scroll', ['$event'])
+
+  onWindowScroll(e) {
+
+    let element = document.querySelector('.navbar');
+    if (window.pageYOffset > 10) {
+      element.classList.add('navbar-inverse');
+    } else {
+      element.classList.remove('navbar-inverse');
+    }
   }
 
   setLoginInfo(loginResponse) {
@@ -54,6 +67,10 @@ export class HeaderComponent implements OnInit {
       })
     ).subscribe(results => {
       this.teamData = results;
+      if (results.length > 0) {
+        this.TeamDataService.setFilteredTeamDetails(this.teamData);
+      }
+
     })
   }
 

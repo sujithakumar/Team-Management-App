@@ -4,13 +4,15 @@ export class task {
     AssignedTo: number;
     AssignedOn: Date;
     AssignedBy: number;
-    Description: string;
-    SubTasks: Array<any>;
     Status: string;
+    DueDate: string;
+    Description: string;
+    category: string;
+    colorCode: string;
+    detailedDescription: string;
     watchList: Array<any>;
     Comments: Array<any>;
     CheckList: Array<any>;
-    DueDate: Date;
 
 }
 

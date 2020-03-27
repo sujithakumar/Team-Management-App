@@ -14,7 +14,7 @@ export class TodoComponent implements OnInit {
   dueDate: any;
   colorCode: string;
 
-  @Input() todoTasks: task;
+  @Input() todoTasks: any;
 
   constructor() { }
 
@@ -22,16 +22,12 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    var CurrvalLen = 0;
-    if (changes.todoTasks.currentValue && changes.todoTasks.currentValue.length > 0) {
-      CurrvalLen = changes.todoTasks.currentValue.length;
-      for (var i = 0; i < CurrvalLen; i++) {
-        this.setData(changes.todoTasks.currentValue[i]);
-      }
-
+    if (changes.todoTasks && changes.todoTasks.currentValue) {
+      this.setData(changes.todoTasks.currentValue);
     }
-
   }
+
+
 
   setData(inputData) {
     this.Count = inputData.Comments.length || 0;

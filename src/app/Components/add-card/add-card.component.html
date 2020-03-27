@@ -1,0 +1,171 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="pull-left">
+                <h5 class="modal-title text-transform">New Task</h5>
+            </div>
+            <div class="pull-right">
+                <a class="nav-link close" aria-label="Close" (click)="close();activeModal.dismiss('Cross click')">
+                    <img class="rounded-circle" height="30" width="30" src="../../../assets/images/closeIcon.jpg" />
+                </a>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="container">
+                <form [formGroup]="addCardForm" (ngSubmit)="onSubmit();">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Task<span class="req">*</span></label>
+                            <input type="text" formControlName="Task" class="form-control"
+                                placeholder="ex:add a button.." class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.Task.errors }" [(ngModel)]="Task" />
+                            <div *ngIf="submitted && f.Task.errors" class="alert alert-danger">
+                                <div *ngIf="f.Task.errors.required">Task is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Task Id</label><span class="req">*</span>
+                            <input type="text" formControlName="taskNumber" class="form-control" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.taskNumber.errors }"
+                                [(ngModel)]="taskNumber" />
+                            <div *ngIf="submitted && f.taskNumber.errors" class="alert alert-danger">
+                                <div *ngIf="f.taskNumber.errors.required">Task Id is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Assign To<span class="req">*</span></label>
+                            <select formControlName="AssignedTo" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.AssignedTo.errors }"
+                                (change)="onChangeAssignedTo($event)">
+                                <option *ngFor="let x of TeamMembers" [ngValue]="x.id">
+                                    {{x.name}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && f.AssignedTo.errors" class="alert alert-danger">
+                                <div *ngIf="f.AssignedTo.errors.required">AssignedTo is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Category</label><span class="req">*</span>
+                            <select formControlName="Category" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.Category.errors }"
+                                (change)="onChangeCategory($event)">
+                                <option *ngFor="let y of Categories">
+                                    {{y.name}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && f.Category.errors" class="alert alert-danger">
+                                <div *ngIf="f.Category.errors.required">Category required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Description</label>
+                            <textarea rows="2" type="text" formControlName="description" class="form-control"
+                                [(ngModel)]="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Status<span class="req">*</span></label>
+                            <select formControlName="status" class="form-control" [value]="status"
+                                [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+                                (change)="onChangestatus($event)" [(ngModel)]="status">
+
+                                <option *ngFor="let z of statuses" [ngValue]="z">
+                                    {{z}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && f.status.errors" class="alert alert-danger">
+                                <div *ngIf="f.status.errors.required">status is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Due Date<span class="req">*</span></label>
+                            <input type="date" formControlName="DueDate" class="form-control" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.DueDate.errors }" [(ngModel)]="DueDate" />
+                            <div *ngIf="submitted && f.DueDate.errors" class="alert alert-danger">
+                                <div *ngIf="f.DueDate.errors.required">DueDate is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Watch List<span class="req">*</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li class="nav-item" *ngFor="let item of TeamMembers">
+                                <img class="rounded-circle" [src]="item.avatar" [title]="item.name" height="25"
+                                    width="25" />
+                                <input type="checkbox" formControlName="WatchList" class="form-control"
+                                    value="{{item.id}}" (change)="onChangeWatchList(item,$event)">
+                            </li>
+                        </ul>
+                        <div *ngIf="submitted && f.WatchList.errors" class="alert alert-danger">
+                            <div *ngIf="f.WatchList.errors.required">WatchList is required</div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Sub Task<span class="req">*</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-11">
+
+                            <input type="text" formControlName="SubTask" class="form-control"
+                                placeholder="ex:buton in page 1.." class="form-control" [(ngModel)]="SubTask" />
+
+                        </div>
+                        <div class="form-group col-md-1">
+                            <img class="rounded-circle" src="../../../assets/images/bluePlus.png" height="35" width="35"
+                                (click)="addItem()" />
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && subtaskErr" class="alert alert-danger">
+                        <div *ngIf="subtaskErr">Add atleast one subtask</div>
+                    </div>
+                    <div class="row" *ngIf="SubTaskArr">
+
+                        <div class="form-group col-md-12">
+                            <ol *ngFor="let x of SubTaskArr;index as i;">
+                                <li style="width: 60%">{{x}}</li>
+                                <li style="width: 10%"><img class="rounded-circle"
+                                        src="../../../assets/images/closeIcon.jpg" title="Remove Item" height="25"
+                                        width="25" (click)="removeItem(i)" /></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            Comments:
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-1">
+
+                            <img class="rounded-circle" [src]="loginUserInfo[0].avatar" height="30" width="30" />
+                        </div>
+                        <div class="form-group col-md-11">
+                            <textarea rows="2" type="text" formControlName="newComments" class="form-control nav-link"
+                                placeholder="Add your comments" [(ngModel)]="newComments"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <button class="btn btn-primary align-middle ">Add Task</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>

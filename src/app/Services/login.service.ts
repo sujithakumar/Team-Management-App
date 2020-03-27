@@ -9,13 +9,6 @@ import { login } from '../Models/login';
 export class LoginService {
 
   public loginDetails: BehaviorSubject<login[]> = new BehaviorSubject<any>({
-    // id: "",
-    // name: "",
-    // Passsword: "",
-    // avatar: "",
-    // notifications: "",
-    // BelongsTo: ""
-
   });
 
   constructor(private http: HttpClient) {

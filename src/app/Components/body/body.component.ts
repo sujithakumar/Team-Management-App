@@ -4,6 +4,8 @@ import { of } from 'rxjs';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { CardComponentComponent } from '../card-component/card-component.component';
+import { AddCardComponent } from '../add-card/add-card.component';
+
 import { TaskService } from '../../Services/task.service';
 import { task } from '../../Models/task';
 
@@ -28,13 +30,17 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     //get all tasks and filter backlog items based on status and assignedby values
 
+    this.initializeData();
+
+  }
+
+  initializeData() {
     this.TaskService.fetchAllTasks().subscribe(data => {
       this.filterBacklogResults(data);
       this.filterTodoResults(data);
       this.filterDoneResults(data);
       this.filterInProgressResults(data);
     });
-
   }
 
   filterDoneResults(responseData) {
@@ -42,7 +48,7 @@ export class BodyComponent implements OnInit {
     unFormattedData.pipe(
       map(data => {
         return data.filter(item => {
-          return (item["Assigned-By"] === parseInt(this.adminId) && ((item.Status).toUpperCase() === "DONE"));
+          return (item["Assigned-By"] == parseInt(this.adminId) && ((item.Status).toUpperCase() === "DONE"));
         });
       })
     ).subscribe(results => {
@@ -56,7 +62,7 @@ export class BodyComponent implements OnInit {
     unFormattedData.pipe(
       map(data => {
         return data.filter(item => {
-          return (item["Assigned-By"] === parseInt(this.adminId) && ((item.Status).toUpperCase() === "TODO"));
+          return (item["Assigned-By"] == parseInt(this.adminId) && ((item.Status).toUpperCase() === "TODO"));
         });
       })
     ).subscribe(results => {
@@ -70,7 +76,7 @@ export class BodyComponent implements OnInit {
     unFormattedData.pipe(
       map(data => {
         return data.filter(item => {
-          return (item["Assigned-By"] === parseInt(this.adminId) && ((item.Status).toUpperCase() === "INPROGRESS"));
+          return (item["Assigned-By"] == parseInt(this.adminId) && (item.Status.toUpperCase() === "INPROGRESS" || item.Status.toUpperCase() === "IN PROGRESS"));
         });
       })
     ).subscribe(results => {
@@ -84,7 +90,7 @@ export class BodyComponent implements OnInit {
     unFormattedData.pipe(
       map(data => {
         return data.filter(item => {
-          return (item["Assigned-By"] === parseInt(this.adminId) && ((item.Status).toUpperCase() === "BACKLOG"));
+          return (item["Assigned-By"] == parseInt(this.adminId) && ((item.Status).toUpperCase() === "BACKLOG"));
         });
       })
     ).subscribe(results => {
@@ -95,6 +101,22 @@ export class BodyComponent implements OnInit {
   cardClick(values) {
     const modalreference = this.modalService.open(CardComponentComponent);
     modalreference.componentInstance.Data = values;
+    this.checkValuesFromModal(modalreference);
   }
+
+  addTask(info) {
+    const modalreference = this.modalService.open(AddCardComponent);
+    modalreference.componentInstance.statusFromCallingEvent = info;
+    this.checkValuesFromModal(modalreference);
+  }
+
+  checkValuesFromModal(refModel) {
+    refModel.componentInstance.passBack.subscribe((receivedEntry) => {
+      if (receivedEntry === "reload") {
+        this.initializeData();
+      }
+    });
+  }
+
 
 }

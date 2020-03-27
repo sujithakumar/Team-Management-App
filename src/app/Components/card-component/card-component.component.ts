@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { TaskService } from '../../Services/task.service';
 @Component({
   selector: 'app-card-component',
   templateUrl: './card-component.component.html',
@@ -10,17 +10,39 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class CardComponentComponent implements OnInit {
 
   @Input() Data: any = `Information`;
+  @Output() passBack: EventEmitter<any> = new EventEmitter();
+
   loginUserInfo: any = JSON.parse(localStorage.getItem('loginInfo'));
   newComment: string;
-  constructor(public activeModal: NgbActiveModal) { }
+  adminId: string = localStorage.getItem('adminID');
+  todayDate = new Date();
+
+  constructor(public activeModal: NgbActiveModal, private TaskService: TaskService, private route: Router, private activatedRoute: ActivatedRoute) { }
+
+
+
   ngOnInit(): void {
-    this.addNewComments();
+
   }
   addNewComments() {
-    debugger;
-    console.log(this.loginUserInfo);
-    console.log(this.loginUserInfo[0]);
-    console.log(this.loginUserInfo[0].avatar);
+    if (this.newComment && this.newComment.length > 0) {
+      var newData = {
+        "commented-by": this.loginUserInfo[0].id,
+        "userAvatar": this.loginUserInfo[0].avatar,
+        "comments": this.newComment,
+        "commentedOn": this.todayDate
+      };
+      this.Data['Comments'].push(newData);
+
+    }
+    this.TaskService.updateTask(this.Data).subscribe(results => {
+
+      this.passBack.emit("reload");
+      this.activeModal.dismiss('Cross click');
+
+    });
+
+
   }
 
 

@@ -14,7 +14,7 @@
                 <li>
                     <a class="nav-link">
                         <button class="btn btn-primary"><img src="../.././../assets/images/plus.png" height="20"
-                                width="20" /> ADD TASK</button>
+                                width="20" (click)="addTask('blank')" /> ADD TASK</button>
                     </a>
                 </li>
             </ul>
@@ -28,13 +28,14 @@
                         Backlog
                     </li>
                     <li class=" blankLi" *ngFor=" let items of backlogTasks;index as i;" (click)="cardClick(items)">
-                        <app-backlog [backlogTasks]="backlogTasks">
+                        <app-backlog [backlogTasks]="items">
                         </app-backlog>
                     </li>
                     <li>
-                        <a class="text-muted">
+                        <a class="text-muted" (click)="addTask('backLog')">
                             <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg"
-                                title="Add another Card" height="25" width="25" /> &nbsp; Add another card
+                                title="Add another Card" height="25" width="25" /> &nbsp;
+                            Add another card
                         </a>
                     </li>
                 </ul>
@@ -45,12 +46,13 @@
                         ToDo
                     </li>
                     <li class=" blankLi" *ngFor=" let items of todoTasks;index as i;" (click)="cardClick(items)">
-                        <app-todo [todoTasks]="todoTasks"></app-todo>
+                        <app-todo [todoTasks]="items"></app-todo>
                     </li>
                     <li>
-                        <a class="text-muted">
+                        <a class="text-muted" (click)="addTask('todo')">
                             <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg"
-                                title="Add another Card" height="25" width="25" /> &nbsp; Add another card
+                                title="Add another Card" height="25" width="25" /> &nbsp; Add
+                            another card
                         </a>
                     </li>
                 </ul>
@@ -61,12 +63,13 @@
                         in progress
                     </li>
                     <li class=" blankLi" *ngFor=" let items of inProgressTasks;index as i;" (click)="cardClick(items)">
-                        <app-inprogress [inProgressTasks]="inProgressTasks"></app-inprogress>
+                        <app-inprogress [inProgressTasks]="items"></app-inprogress>
                     </li>
                     <li>
-                        <a class="text-muted">
+                        <a class="text-muted" (click)="addTask('inProgress')">
                             <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg"
-                                title="Add another Card" height="25" width="25" /> &nbsp; Add another card
+                                title="Add another Card" height="25" width="25" />
+                            &nbsp; Add another card
                         </a>
                     </li>
                 </ul>
@@ -77,13 +80,14 @@
                         done
                     </li>
                     <li class=" blankLi" *ngFor=" let items of doneTasks;index as i;" (click)="cardClick(items)">
-                        <app-done [doneTasks]="doneTasks">
+                        <app-done [doneTasks]="items">
                         </app-done>
                     </li>
                     <li>
-                        <a class="text-muted">
+                        <a class="text-muted" (click)="addTask('done')">
                             <img class=" rounded-circle" src="../.././../assets/images/addmore.jpg"
-                                title="Add another Card" height="25" width="25" /> &nbsp; Add another card
+                                title="Add another Card" height="25" width="25" /> &nbsp; Add
+                            another card
                         </a>
                     </li>
                 </ul>
